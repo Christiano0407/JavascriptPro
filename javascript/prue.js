@@ -8,3 +8,13 @@
     
     printColor()
 })();
+
+function makeColor(color){
+    let colorMessage = `The color is ${color}`
+    return function(){
+      console.log(colorMessage)  
+    } 
+}
+
+let redColorPrinter = makeColor(`Red`)
+console.log(redColorPrinter())
