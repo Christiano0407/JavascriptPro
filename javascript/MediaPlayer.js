@@ -27,4 +27,22 @@ MediaPlayer.prototype.toggleplay = function(){
     }
 }
 
+MediaPlayer.prototype.mute = function() {
+    this.media.muted = true;
+}
+
+MediaPlayer.prototype.unmute = function() {
+    this.media.unmuted = false;
+}
+
+MediaPlayer.prototype.togglemute = function() {
+    if(this.media.muted) {
+        this.mute();
+    }else {
+        this.mute();
+    }
+}
+
+
+
 export default MediaPlayer
