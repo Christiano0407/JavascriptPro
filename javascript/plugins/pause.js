@@ -2,6 +2,7 @@ class pause {
     constructor() {
         this.threshold = 0.25
         this.handlerIntersection = this.handlerIntersection.bind(this)
+        this.handleVisibilityChange = this.handleVisibilityChange.bind(this)
     } 
     
     run(player){ 
@@ -12,6 +13,7 @@ class pause {
        }) 
 
        observer.observe(this.player.media)
+       document.addEventListener("visibilitychange", this.handleVisibilityChange)
     }
 
     handlerIntersection(entries) {
@@ -26,6 +28,16 @@ class pause {
           this.player.pause();
 
       }
+    }
+
+    handleVisibilityChange() {
+        const isVisible = document.visibilityState == "visible";
+        if(isVisible) {
+            this.player.play()
+        }else {
+            
+            this.player.pause()
+        }
     }
 }
 
